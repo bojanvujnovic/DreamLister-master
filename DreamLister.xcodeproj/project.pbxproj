@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0B0BDD2D1E58AB2000603D8B /* ItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B0BDD2C1E58AB2000603D8B /* ItemCell.swift */; };
 		0B21D2E41E586F74003B2E29 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B21D2E31E586F74003B2E29 /* AppDelegate.swift */; };
 		0B21D2E61E586F74003B2E29 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0B21D2E51E586F74003B2E29 /* MainVC.swift */; };
 		0B21D2E91E586F74003B2E29 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0B21D2E71E586F74003B2E29 /* Main.storyboard */; };
@@ -21,9 +22,11 @@
 		0BDE725D1E588EA20097A96C /* ItemType+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDE72551E588EA20097A96C /* ItemType+CoreDataProperties.swift */; };
 		0BDE725E1E588EA20097A96C /* Store+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDE72561E588EA20097A96C /* Store+CoreDataClass.swift */; };
 		0BDE725F1E588EA20097A96C /* Store+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDE72571E588EA20097A96C /* Store+CoreDataProperties.swift */; };
+		0BDE72641E5898100097A96C /* MaterialView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0BDE72631E5898100097A96C /* MaterialView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		0B0BDD2C1E58AB2000603D8B /* ItemCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ItemCell.swift; sourceTree = "<group>"; };
 		0B21D2E01E586F74003B2E29 /* DreamLister.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DreamLister.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		0B21D2E31E586F74003B2E29 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		0B21D2E51E586F74003B2E29 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainVC.swift; sourceTree = "<group>"; };
@@ -40,6 +43,7 @@
 		0BDE72551E588EA20097A96C /* ItemType+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ItemType+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		0BDE72561E588EA20097A96C /* Store+CoreDataClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Store+CoreDataClass.swift"; sourceTree = "<group>"; };
 		0BDE72571E588EA20097A96C /* Store+CoreDataProperties.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Store+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		0BDE72631E5898100097A96C /* MaterialView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MaterialView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				0BDE72601E588F550097A96C /* Model */,
+				0BDE72621E5897DF0097A96C /* View */,
 				0B21D2E31E586F74003B2E29 /* AppDelegate.swift */,
 				0B21D2E51E586F74003B2E29 /* MainVC.swift */,
 				0B21D2E71E586F74003B2E29 /* Main.storyboard */,
@@ -105,6 +110,15 @@
 				0BDE72571E588EA20097A96C /* Store+CoreDataProperties.swift */,
 			);
 			name = Generated;
+			sourceTree = "<group>";
+		};
+		0BDE72621E5897DF0097A96C /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0BDE72631E5898100097A96C /* MaterialView.swift */,
+				0B0BDD2C1E58AB2000603D8B /* ItemCell.swift */,
+			);
+			name = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -179,9 +193,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0B0BDD2D1E58AB2000603D8B /* ItemCell.swift in Sources */,
 				0BDE725B1E588EA20097A96C /* Item+CoreDataProperties.swift in Sources */,
 				0BDE725A1E588EA20097A96C /* Item+CoreDataClass.swift in Sources */,
 				0BDE725D1E588EA20097A96C /* ItemType+CoreDataProperties.swift in Sources */,
+				0BDE72641E5898100097A96C /* MaterialView.swift in Sources */,
 				0B21D2E61E586F74003B2E29 /* MainVC.swift in Sources */,
 				0BDE725F1E588EA20097A96C /* Store+CoreDataProperties.swift in Sources */,
 				0BDE72591E588EA20097A96C /* Image+CoreDataProperties.swift in Sources */,
