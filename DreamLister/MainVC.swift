@@ -21,7 +21,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFe
         tableView.dataSource = self
         tableView.delegate = self
         
-        generateTestData()
+        //generateTestData()
         self.attemptFetch()
     }
 
@@ -66,6 +66,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFe
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         fetchedResultsController = controller
         do {
+            //Fetch data from CoreData
             try controller.performFetch()
         } catch let error {
             print(error.localizedDescription)
@@ -107,7 +108,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFe
         }
     }
     
-    
+    //Generated data in NSManagedObjectContext and saved to Database
     func generateTestData()  {
         //Created Item in NSManagedObjectContext
         let item = Item(context: context)
@@ -125,6 +126,7 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFe
         item3.price = 110000
         item3.details = "I can't wait until the September event, I hope they will release new MBPs"
         
+        appDelegate.saveContext()
     }
     
     
