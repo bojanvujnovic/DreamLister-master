@@ -49,7 +49,7 @@
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="8m3-Yn-UxW">
                                                     <rect key="frame" x="8" y="8" width="327" height="134"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tesla" translatesAutoresizingMaskIntoConstraints="NO" id="YUq-kK-x4p">
+                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YUq-kK-x4p">
                                                             <rect key="frame" x="8" y="17" width="100" height="100"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="height" constant="100" id="68R-3g-7OH"/>
@@ -146,7 +146,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="820" y="776.76161919040487"/>
+            <point key="canvasLocation" x="809" y="777"/>
         </scene>
         <!--Add / Edit-->
         <scene sceneID="wCB-If-kwh">
@@ -173,6 +173,9 @@
                                     <constraint firstAttribute="width" constant="100" id="4o1-fZ-awj"/>
                                     <constraint firstAttribute="height" constant="100" id="Jnr-o6-8eY"/>
                                 </constraints>
+                                <connections>
+                                    <action selector="addImage:" destination="t8R-iY-ePd" eventType="touchUpInside" id="ZBS-dL-vZ3"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Title" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ihq-u2-JX3" customClass="CustomTextField" customModule="DreamLister" customModuleProvider="target">
                                 <rect key="frame" x="124" y="74" width="235" height="40"/>
@@ -263,18 +266,22 @@
                     <navigationItem key="navigationItem" title="Add / Edit" id="kNk-mW-Lad">
                         <barButtonItem key="rightBarButtonItem" systemItem="trash" id="c7W-BT-mpa">
                             <color key="tintColor" red="1" green="0.095220988908628512" blue="0.18255376890147834" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="deletePressed:" destination="t8R-iY-ePd" id="wsv-05-9JH"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="detailsField" destination="Wbr-gy-RGh" id="5iP-Eg-yE2"/>
                         <outlet property="priceField" destination="a2r-K7-KwD" id="pfi-yS-cPF"/>
                         <outlet property="storePicker" destination="XmH-BH-FYD" id="uIr-yP-vrO"/>
+                        <outlet property="thumbImage" destination="k9k-Kw-Jc3" id="guE-ZR-UWP"/>
                         <outlet property="titleField" destination="Ihq-u2-JX3" id="2Uz-22-aid"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LAa-kz-vJF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1536.8" y="776.76161919040487"/>
+            <point key="canvasLocation" x="1498" y="777"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="dLW-Pn-PpY">
@@ -302,7 +309,6 @@
     </scenes>
     <resources>
         <image name="imagePick" width="300" height="300"/>
-        <image name="tesla" width="800" height="489"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PPa-Wa-UjA"/>
