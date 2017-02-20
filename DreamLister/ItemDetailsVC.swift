@@ -55,8 +55,7 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         }
     }
     
-    
-
+    //PickerView delegate methods
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let store = stores[row]
         return store.name
@@ -98,7 +97,6 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
             item = itemToEdit
         }
         
-        
         item.toImage = picture
         
         if let title = titleField.text {
@@ -114,7 +112,6 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         item.toStore = stores[storePicker.selectedRow(inComponent: 0)]
         appDelegate.saveContext()
         _ = navigationController?.popViewController(animated: true)
-        
     }
     
     func loadItemData() {
@@ -139,7 +136,6 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
             appDelegate.saveContext()
         }
         _ = navigationController?.popViewController(animated: true)
-        
     }
     
     
@@ -148,6 +144,7 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         present(imagePicker, animated: true, completion: nil)
     }
     
+    //ImagePickerController delegate method
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [String : Any]) {
         
         if let image = info[UIImagePickerControllerOriginalImage] as? UIImage {
