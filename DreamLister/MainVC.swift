@@ -70,13 +70,22 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFe
             }
         }
     }
-     
+     //Fetches the Data from CoreData according to Sort descriptor key
     func attemptFetch()  {
         //Fetching Item data from Database(SQLite)
         let fetchRequest: NSFetchRequest<Item> = Item.fetchRequest()
         //Object will be sorted according to the key argument
         let dateSort = NSSortDescriptor(key: "created", ascending: false)
-        fetchRequest.sortDescriptors = [dateSort]
+        let priceSort = NSSortDescriptor(key: "price", ascending: true)
+        let titleSort = NSSortDescriptor(key: "title", ascending: true)
+        
+        switch segment.selectedSegmentIndex {
+        case 0:   fetchRequest.sortDescriptors = [dateSort]
+        case 1:   fetchRequest.sortDescriptors = [priceSort]
+        case 2:   fetchRequest.sortDescriptors = [titleSort]
+        default: break
+        }
+        
         //Controller for displaying fetched data from CoreData
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
         self.fetchedResultsController = controller
@@ -88,6 +97,13 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFe
             print(error.localizedDescription)
         }
     }
+    //SegmentedControl
+    @IBAction func segmentChange(_ sender: Any) {
+         self.attemptFetch()
+        tableView.reloadData()
+    }
+    
+    
     //FetchController delegate method
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
         tableView.beginUpdates()
