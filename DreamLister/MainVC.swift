@@ -55,6 +55,21 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFe
         let item = fetchedResultsController.object(at: indexPath)
         cell.configureCell(item: item)
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if let objects = fetchedResultsController.fetchedObjects, objects.count > 0 {
+            let item = objects[indexPath.row]
+            performSegue(withIdentifier: "ItemDetailsVC", sender: item)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "ItemDetailsVC" {
+            if let destination = segue.destination as? ItemDetailsVC, let item = sender as? Item {
+                destination.itemToEdit = item
+            }
+        }
+    }
      
     func attemptFetch()  {
         //Fetching Item data from Database(SQLite)
@@ -64,7 +79,8 @@ class MainVC: UIViewController, UITableViewDataSource, UITableViewDelegate, NSFe
         fetchRequest.sortDescriptors = [dateSort]
         //Controller for displaying fetched data from CoreData
         let controller = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-        fetchedResultsController = controller
+        self.fetchedResultsController = controller
+        self.fetchedResultsController.delegate = self
         do {
             //Fetch data from CoreData
             try controller.performFetch()

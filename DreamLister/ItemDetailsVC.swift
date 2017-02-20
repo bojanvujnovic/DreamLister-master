@@ -12,11 +12,12 @@ import CoreData
 class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDelegate {
     
     @IBOutlet weak var storePicker: UIPickerView!
-    @IBOutlet weak var titleFiled: CustomTextField!
+    @IBOutlet weak var titleField: CustomTextField!
     @IBOutlet weak var priceField: CustomTextField!
     @IBOutlet weak var detailsField: CustomTextField!
     
     var stores = [Store]()
+    var itemToEdit: Item?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -42,7 +43,12 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
 //        //Data saved to CoreData
 //        appDelegate.saveContext()
         self.getStores()
+        if itemToEdit != nil {
+            self.loadItemData()
+        }
     }
+    
+    
 
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
         let store = stores[row]
@@ -73,5 +79,43 @@ class ItemDetailsVC: UIViewController, UIPickerViewDataSource, UIPickerViewDeleg
         }
 
     }
+    
+    @IBAction func savedPressed(_ sender: UIButton) {
+        var item: Item!
+        if itemToEdit == nil {
+            item = Item(context: context)
+        } else {
+            item = itemToEdit
+        }
+        
+        if let title = titleField.text {
+            item.title = title
+        }
+        if let priceString = priceField.text, let price = Double(priceString) {
+            item.price = price
+        }
+        if let details = detailsField.text {
+            item.details = details
+        }
+        //Assigns a Store selected from storePicker
+        item.toStore = stores[storePicker.selectedRow(inComponent: 0)]
+        appDelegate.saveContext()
+        _ = navigationController?.popViewController(animated: true)
+    }
+    
+    func loadItemData() {
+        if let item = itemToEdit {
+            titleField.text = item.title
+            priceField.text = "\(item.price)"
+            detailsField.text = item.details
+            if let store = item.toStore {
+                //Gives an index for an element in Stores array equal to the store
+                let index = stores.enumerated().filter({ $1.name == store.name  })[0].offset
+                storePicker.selectRow(index, inComponent: 0, animated: false)
+            }
+        }
+        
+    }
+    
     
 }

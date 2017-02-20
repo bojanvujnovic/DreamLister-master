@@ -39,7 +39,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="150" id="Rs5-FA-GCK" customClass="ItemCell" customModule="DreamLister" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="ItemCell" rowHeight="150" id="Rs5-FA-GCK" customClass="ItemCell" customModule="DreamLister" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="28" width="343" height="150"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Rs5-FA-GCK" id="BXI-u9-goq">
@@ -230,6 +230,9 @@
                                 <state key="normal" title="Save Item">
                                     <color key="titleColor" red="0.9061706853" green="0.9061706853" blue="0.9061706853" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </state>
+                                <connections>
+                                    <action selector="savedPressed:" destination="t8R-iY-ePd" eventType="touchUpInside" id="uRK-tW-0Wo"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -266,7 +269,7 @@
                         <outlet property="detailsField" destination="Wbr-gy-RGh" id="5iP-Eg-yE2"/>
                         <outlet property="priceField" destination="a2r-K7-KwD" id="pfi-yS-cPF"/>
                         <outlet property="storePicker" destination="XmH-BH-FYD" id="uIr-yP-vrO"/>
-                        <outlet property="titleFiled" destination="Ihq-u2-JX3" id="IW6-kE-A8z"/>
+                        <outlet property="titleField" destination="Ihq-u2-JX3" id="2Uz-22-aid"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="LAa-kz-vJF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -278,7 +281,7 @@
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yoP-jw-gCh" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="sYL-hg-lW8">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="sYL-hg-lW8">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <color key="tintColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
